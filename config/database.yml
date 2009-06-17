@@ -1,0 +1,20 @@
+development:
+  adapter: mysql
+  username: root
+  encoding: utf8
+  database: kostendeler_development
+  timeout: 5000
+
+test:
+  adapter: mysql
+  database: kostendeler_test
+  timeout: 5000
+
+production:
+  adapter: mysql
+  database: kostendeler_prod
+  timeout: 5000
+  username: root
+  encoding: utf8
+  password: kerstin12@bart.nl
+  socket: /var/lib/mysql/mysql.sock
