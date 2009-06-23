@@ -6,6 +6,7 @@ class GroupsUsers < ActiveRecord::Base
   end
   belongs_to :group
   
+
   def can_be_removed?
     
   end
