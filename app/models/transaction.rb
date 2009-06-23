@@ -1,7 +1,7 @@
 class Transaction < ActiveRecord::Base
   belongs_to :group
   has_many :transaction_users
-  has_and_belongs_to_many :users, :through => :transaction_users
+  has_and_belongs_to_many :users
   
   #TODO rewrite this in nice ruby code?
   def total_users

@@ -3,6 +3,6 @@ class GroupsUsers < ActiveRecord::Base
   belongs_to :group
   
   def total_amount
-    user.transactions.
+    #user.transactions.
   end
 end
