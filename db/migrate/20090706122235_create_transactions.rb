@@ -5,6 +5,7 @@ class CreateTransactions < ActiveRecord::Migration
       t.float :amount
       t.string :name
       t.datetime :paid_at
+      t.integer :number_of_people
 
       t.timestamps
     end
