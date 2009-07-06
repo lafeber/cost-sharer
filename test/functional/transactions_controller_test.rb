@@ -12,15 +12,15 @@ class TransactionsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create transactions" do
-    assert_difference('Transactions.count') do
-      post :create, :transactions => { }
+  test "should create transaction" do
+    assert_difference('Transaction.count') do
+      post :create, :transaction => { }
     end
 
-    assert_redirected_to transactions_path(assigns(:transactions))
+    assert_redirected_to transaction_path(assigns(:transaction))
   end
 
-  test "should show transactions" do
+  test "should show transaction" do
     get :show, :id => transactions(:one).to_param
     assert_response :success
   end
@@ -30,13 +30,13 @@ class TransactionsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should update transactions" do
-    put :update, :id => transactions(:one).to_param, :transactions => { }
-    assert_redirected_to transactions_path(assigns(:transactions))
+  test "should update transaction" do
+    put :update, :id => transactions(:one).to_param, :transaction => { }
+    assert_redirected_to transaction_path(assigns(:transaction))
   end
 
-  test "should destroy transactions" do
-    assert_difference('Transactions.count', -1) do
+  test "should destroy transaction" do
+    assert_difference('Transaction.count', -1) do
       delete :destroy, :id => transactions(:one).to_param
     end
 
