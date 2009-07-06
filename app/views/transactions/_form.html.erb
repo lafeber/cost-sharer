@@ -1,8 +1,10 @@
 <% form_for(@transaction) do |f| %>
   <%= f.error_messages %>
-  <%= f.text_field :amount %>
-  <%= f.text_field :name %>
-  <%= f.date_select :paid_at %>
+  Omschrijving: <%= f.text_field :name %><br />
+  Kosten in &euro; :<%= f.text_field :amount %> <br />
+  Gekocht op datum: <%= f.date_select :paid_at %>
+  
+  
   <p>
     <%= f.submit 'Submit' %>
   </p>
