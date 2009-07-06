@@ -1,12 +1,6 @@
-<h1>Editing transactions</h1>
+<h1>Editing transaction</h1>
 
-<% form_for(@transactions) do |f| %>
-  <%= f.error_messages %>
+<%= render :partial => 'form' %>
 
-  <p>
-    <%= f.submit 'Update' %>
-  </p>
-<% end %>
-
-<%= link_to 'Show', @transactions %> |
+<%= link_to 'Show', @transaction %> |
 <%= link_to 'Back', transactions_path %>

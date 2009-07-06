@@ -1,0 +1,9 @@
+<% form_for(@transaction) do |f| %>
+  <%= f.error_messages %>
+  <%= f.text_field :amount %>
+  <%= f.text_field :name %>
+  <%= f.date_select :paid_at %>
+  <p>
+    <%= f.submit 'Submit' %>
+  </p>
+<% end %>
