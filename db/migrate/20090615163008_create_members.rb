@@ -1,6 +1,6 @@
-class CreateGroupsUsers < ActiveRecord::Migration
+class CreateMembers < ActiveRecord::Migration
   def self.up
-    create_table :groups_users do |t|
+    create_table :members do |t|
       t.boolean :is_admin
       t.integer :group_id
       t.integer :user_id
@@ -10,6 +10,6 @@ class CreateGroupsUsers < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :groups_users
+    drop_table :members
   end
 end
