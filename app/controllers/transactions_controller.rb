@@ -12,7 +12,7 @@ class TransactionsController < ApplicationController
   end
 
   def edit
-    @transactions = Transaction.find(params[:id])
+    @transaction = Transaction.find(params[:id])
   end
 
   def create
