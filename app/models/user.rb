@@ -1,6 +1,10 @@
 require 'digest/sha1'
 
 class User < ActiveRecord::Base
+  has_many :members
+  has_many :transaction_users
+  has_and_belongs_to_many :transactions
+
   include Authentication
   include Authentication::ByPassword
   include Authentication::ByCookieToken
@@ -60,6 +64,4 @@ class User < ActiveRecord::Base
     def make_activation_code
         self.activation_code = self.class.make_token
     end
-
-
 end
