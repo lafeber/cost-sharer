@@ -15,6 +15,9 @@ Rails::Initializer.run do |config|
              :lib    => "factory_girl",
              :source => "http://gems.github.com"
 
+  config.active_record.observers = :user_observer
+
+
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers
   # -- all .rb files in that directory are automatically loaded.
