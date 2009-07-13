@@ -7,8 +7,9 @@ set :user, "martijn"
 ssh_options[:username] = "martijn"
 set :deploy_to, '/var/www/kostendeler.nl/httpdocs'
 set :application, "kostendeler"
-set :repository,  "git@145.103.105.239:kostendeler.git"
-
+set :repository,  "git@github.com:lafeber/cost-sharer.git"
+#git@145.103.105.239:kostendeler.git
+  
 # If you aren't deploying to /u/apps/#{application} on the target
 # servers (which is the default), you can specify the actual location
 # via the :deploy_to variable:
