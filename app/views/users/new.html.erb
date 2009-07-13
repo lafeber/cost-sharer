@@ -1,4 +1,4 @@
-<h1>Sign up as a new user</h1>
+<h1>Maak een nieuw account aan</h1>
 <% @user.password = @user.password_confirmation = nil %>
 
 <%= error_messages_for :user %>
@@ -6,11 +6,11 @@
 <p><%= label_tag 'email (login)' %><br/>
 <%= f.text_field :login %></p>
 
-<p><%= label_tag 'password' %><br/>
+<p><%= label_tag 'wachtwoord' %><br/>
 <%= f.password_field :password %></p>
 
-<p><%= label_tag 'password_confirmation', 'Confirm Password' %><br/>
+<p><%= label_tag 'password_confirmation', 'Wachtwoord nog een keer' %><br/>
 <%= f.password_field :password_confirmation %></p>
 
-<p><%= submit_tag 'Sign up' %></p>
+<p><%= submit_tag 'Maak aan' %></p>
 <% end -%>
