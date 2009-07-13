@@ -1,9 +1,5 @@
 # This controller handles the login/logout function of the site.  
 class SessionsController < ApplicationController
-  # Be sure to include AuthenticationSystem in Application Controller instead
-  include AuthenticatedSystem
-
-  # render new.rhtml
   def new
   end
 
@@ -18,8 +14,14 @@ class SessionsController < ApplicationController
       self.current_user = user
       new_cookie_flag = (params[:remember_me] == "1")
       handle_remember_cookie! new_cookie_flag
-      redirect_back_or_default('/')
-      flash[:notice] = "Logged in successfully"
+
+      if current_user.groups.empty?
+        redirect_to new_group_path
+      else
+        redirect_to group_path(current_user.groups.last)
+      end
+      
+      flash[:notice] = "Succesvol ingelogd."
     else
       note_failed_signin
       @login       = params[:login]
