@@ -9,7 +9,8 @@
 </head>
 <body>
 <div id="header">
-  kostendeler.nl
+  <span class="pos-r"><%= link_to("Log uit", logout_path) if current_user %></span>  
+  <h1>kostendeler.nl</h1>
 </div>
 <p style="color: green"><%= flash[:notice] %></p>
 
