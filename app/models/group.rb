@@ -1,6 +1,7 @@
 class Group < ActiveRecord::Base
-  has_and_belongs_to_many :users
-  has_many :members
-  #has_one :admin, :through => :users, :join_table => "groups_users", :conditions => "groups_users.is_admin = true"
+  # has_and_belongs_to_many :users
+  # has_many :users, :through => "members", :foreign_key => "group_id"
+  
+  has_and_belongs_to_many :users, :join_table => "members", :foreign_key => "group_id"
   has_many :transactions
 end

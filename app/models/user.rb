@@ -2,6 +2,7 @@ require 'digest/sha1'
 
 class User < ActiveRecord::Base
   has_many :members
+  has_and_belongs_to_many :groups, :join_table => "members", :foreign_key => 'user_id'
   has_many :transaction_users
   has_and_belongs_to_many :transactions
 
