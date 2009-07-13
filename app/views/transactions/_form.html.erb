@@ -1,4 +1,4 @@
-<% form_for(@transaction) do |f| %>
+<% form_for([@group, @transaction]) do |f| %>
   <%= f.error_messages %>
   Omschrijving: <%= f.text_field :name %><br />
   Kosten in &euro; :<%= f.text_field :amount %> <br />

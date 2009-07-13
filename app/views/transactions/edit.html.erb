@@ -2,5 +2,5 @@
 
 <%= render :partial => 'form' %>
 
-<%= link_to 'Show', @transaction %> |
-<%= link_to 'Back', transactions_path %>
+<%= link_to 'Show', group_transaction_path(@group, @transaction) %> |
+<%= link_to 'Back', group_transactions_path(@group) %>

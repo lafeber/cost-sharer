@@ -1,4 +1,4 @@
-<h1>Listing transactions</h1>
+<h1>Betalingen:</h1>
 
 <table>
   <tr>
@@ -6,13 +6,16 @@
 
 <% @transactions.each do |transaction| %>
   <tr>
-    <td><%= link_to 'Show', transaction %></td>
-    <td><%= link_to 'Edit', edit_transaction_path(transaction) %></td>
-    <td><%= link_to 'Destroy', transaction, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= transaction.name %></td>
+    <td><%= euro(transaction.amount) %></td>
+    <td><%= transaction.paid_at.strftime("%m-%d-%Y") %></td>
+    <td><%= link_to 'Show', group_transaction_path(@group, transaction) %></td>
+    <td><%= link_to 'Edit', edit_group_transaction_path(@group, transaction) %></td>
+    <td><%= link_to 'Destroy', group_transaction_path(@group, transaction), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New transaction', new_transaction_path %>
+<%= link_to 'Nieuwe betaling', new_group_transaction_path(@group) %>

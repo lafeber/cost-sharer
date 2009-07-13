@@ -6,11 +6,19 @@ class GroupsController < ApplicationController
   end
   
   def show
-    params[:id] = Group
+    group = Group.find(params[:id])
+    redirect_to(group_transactions_path(group))
+  end
+  
+  def index
+    
   end
   
   def create
     @group = Group.create(params[:group])
+    current_user.groups << @group
+    current_user.save
+    
     redirect_to group_path(@group)
   end
     
