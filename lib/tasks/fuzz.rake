@@ -9,8 +9,10 @@ namespace :fuzz do
     first_name = Faker::Name.first_name
     last_name = Faker::Name.last_name
     
-    User.create(:email => "#{first_name}.#{last_name}@kostendeler.nl".downcase,
+    User.create(:login => "#{first_name}.#{last_name}@kostendeler.nl".gsub(/[']/,'').downcase,
       :name => "#{first_name} #{last_name}",
+      :password => "wordpass",
+      :password_confirmation => "wordpass",
       :account_id => "PB#{(rand(899999) + 100000).to_s}"
     )
   end
@@ -22,10 +24,10 @@ namespace :fuzz do
  
     # Assign between 5-12 users as members to a group:
     Group.all.each do |g|
-      n = rand(7) + 5
+      n = rand(7)
       n.times do 
         user = create_user
-        g.members.create(:group_id => g.id, :user_id => user.id)
+        g.users << user
         g.save
       end
       # Make the first member of the group an administrator:
