@@ -33,6 +33,11 @@ namespace :deploy do
    task :after_update_code, :roles => :app do
        run "rm -rf #{release_path}/public/.htaccess"
        run "ln -s /var/www/kostendeler.nl/config/database.yml #{release_path}/config/database.yml"
+
+       #TODO remove this dirty hack
+       run "ln -s application_controller.rb application.rb" 
+       #TODO remove this dirty hack
+       run "git clone git://github.com/technoweenie/restful-authentication.git restful_authentication"
        # run "rm #{release_path}/index.html"
    end
 end
