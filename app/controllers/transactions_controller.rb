@@ -21,6 +21,7 @@ class TransactionsController < ApplicationController
     @transaction = Transaction.new(params[:transaction])
 
     if @transaction.save
+      @transaction.add_users(params['paying_user_id'], params['leecher_ids'])
       flash[:notice] = 'Transaction was successfully created.'
       redirect_to group_transactions_path(@group)
     else
