@@ -11,7 +11,12 @@ class GroupsController < ApplicationController
   end
   
   def index
-    
+    if current_user.groups.any?
+      #TODO it should actually remember which group was visited last time!
+      redirect_to group_transactions_path(current_user.groups.last)
+    else
+      render :action => 'new'
+    end
   end
   
   def create
