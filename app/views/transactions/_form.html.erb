@@ -2,8 +2,12 @@
   <%= f.error_messages %>
   Omschrijving: <%= f.text_field :name %><br />
   Kosten in &euro; :<%= f.text_field :amount %> <br />
-  Gekocht op datum: <%= f.date_select :paid_at %>
+  Gekocht op datum: <%= f.date_select :paid_at %><br />
   
+  Heeft betaald:<%= select_tag 'paying_user_id', options_for_select(@group.users.collect{ |u| [u.name, u.id] }) %><br />
+
+  Participanten:<br />  
+  <%= render :partial => 'leecher', :collection => @group.users %><br />
   
   <p>
     <%= f.submit 'Submit' %>
