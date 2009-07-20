@@ -32,7 +32,7 @@ namespace :deploy do
 
    task :after_update_code, :roles => :app do
        run "rm -rf #{release_path}/public/.htaccess"
-       run "ln -s #{release_path}/config/database.yml /var/www/kostendeler.nl/config/database.yml"
+       run "ln -s /var/www/kostendeler.nl/config/database.yml #{release_path}/config/database.yml"
        # run "rm #{release_path}/index.html"
    end
 end
