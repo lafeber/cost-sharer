@@ -37,7 +37,7 @@ namespace :deploy do
        #TODO remove this dirty hack
        run "ln -s #{release_path}/app/controllers/application_controller.rb #{release_path}/app/controllers/application.rb" 
        #TODO remove this dirty hack
-       run "cd #{release_path}/vendor/plugins/ ; git clone git://github.com/technoweenie/restful-authentication.git restful_authentication"
+       run "cd #{release_path}/vendor/plugins/ ; rm -r restful-authentication ; git clone git://github.com/technoweenie/restful-authentication.git restful_authentication"
        # run "rm #{release_path}/index.html"
    end
 end
