@@ -35,9 +35,6 @@ namespace :deploy do
    task :after_update_code, :roles => :app do
        run "rm -rf #{release_path}/public/.htaccess"
        run "ln -s /var/www/kostendeler.nl/config/database.yml #{release_path}/config/database.yml"
-
-       #TODO remove this dirty hack
-       run "ln -s #{release_path}/app/controllers/application_controller.rb #{release_path}/app/controllers/application.rb" 
    end
 end
 
