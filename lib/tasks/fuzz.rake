@@ -24,7 +24,10 @@ namespace :fuzz do
  
     # Assign between 5-12 users as members to a group:
     Group.all.each do |g|
-      n = rand(7)
+      # OK, so why rand + 2?
+      # 1. A group should have at least 1 member or the next step of this script will fuck up;
+      # 2. Groups with less than 2 members are not useful for this application.
+      n = rand(7) + 2 
       n.times do 
         user = create_user
         g.users << user
