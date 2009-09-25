@@ -2,7 +2,7 @@ require 'digest/sha1'
 
 class User < ActiveRecord::Base
   has_many :members
-  has_and_belongs_to_many :groups, :join_table => "members", :foreign_key => 'user_id'
+  has_many :groups, :through => :members
   has_many :transaction_users
   has_and_belongs_to_many :transactions
 
@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   validates_format_of       :name,     :with => Authentication.name_regex,  :message => Authentication.bad_name_message, :allow_nil => true
   # validates_length_of       :name,     :maximum => 100
 
-  before_create :make_activation_code 
+  before_create :make_activation_code
 
   # HACK HACK HACK -- how to do attr_accessible from here?
   # prevents a user from submitting a crafted form that bypasses activation
@@ -46,7 +46,7 @@ class User < ActiveRecord::Base
 
   # Authenticates a user by their login name and unencrypted password.  Returns the user or nil.
   #
-  # uff.  this is really an authorization, not authentication routine.  
+  # uff.  this is really an authorization, not authentication routine.
   # We really need a Dispatch Chain here or something.
   # This will also let us return a human error message.
   #
@@ -61,7 +61,7 @@ class User < ActiveRecord::Base
   end
 
   protected
-    
+
     def make_activation_code
         self.activation_code = self.class.make_token
     end
